@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 interface User{
 id : number;
 email : string
+name : string  
 }
 function App() {
 const [users,setUsers] = useState<User[]>([]);
@@ -23,7 +24,7 @@ const filterUsers = users.filter((user)=>user.email.toLowerCase().includes(searc
    <input value={search} onChange={(event)=>setSearch(event.target.value)}/>
    {loading && <p>Loading...</p>}
    {error && <p>{error}</p>}
-   {filterUsers.map((user)=>(<p key={user.id}>{user.email}</p>))}
+   {filterUsers.map((user)=>(<p key={user.id}>{user.email} - {user.name}</p>))}
    </>
   );
 }
